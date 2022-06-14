@@ -7,7 +7,6 @@ export default function Header() {
             <Link to="/profile" className="link"><h1>Profile</h1></Link>
             <Link to="/profile" className="link"><h1>Loans</h1></Link>
             <Link to="/profile" className="link"><h1>Payments</h1></Link>
-            
         </div>
     )
 }
