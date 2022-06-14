@@ -1,0 +1,10 @@
+.bodyBackground {
+ background-color: lightgray;
+ position:absolute;
+ align-content: center;
+}
+
+.bodyFrame {
+    background-color: white;
+    width: 80%;
+}

@@ -7,7 +7,7 @@ clientSchema = new Schema({
     adress: { type: String, required: true },
     pjoneNumber: { type: Number, required: true },
     contactPerson: { type: String, required: true }
-})
+},{versionKey: false})
 
 loanSchema = new Schema({
     clientID: { type: Schema.Types.ObjectId, ref: 'client', required: true },
@@ -16,26 +16,26 @@ loanSchema = new Schema({
     dateofRepayment: { type: Date },
     debtAmount: { type: Number, required: true },
     currentDebtAmount: { type: Number, required: true }
-})
+},{versionKey: false})
 
 loanTypeSchema = new Schema({
     title: { type: String, required: true },
     terms: { type: String, required: true },
     rate: { type: Number, required: true },
     term: { type: Number, required: true }
-})
+},{versionKey: false})
 
 paymentSchema = new Schema({
     loanID: { type: Schema.Types.ObjectId, ref: 'loan', required: true },
     paymentAmount: { type: Number, required: true },
-    paymentDate: { type: Date, default: Date.now }
-})
+    paymentDate: { type: Date, required: true }
+},{versionKey: false})
 
 class models {
-    client = new model("client", clientSchema)
-    loan = new model("loan", loanSchema)
-    loanType = new model("loanType", loanTypeSchema)
-    payment = new model("payment", paymentSchema)
+    clients = new model("client", clientSchema)
+    loans = new model("loan", loanSchema)
+    loanTypes = new model("loanType", loanTypeSchema)
+    payments = new model("payment", paymentSchema)
 }
 
 module.exports = new models();
